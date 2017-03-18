@@ -1,0 +1,21 @@
+{
+
+  "manifest_version": 2,
+  "name": "AddonSessions",
+  "version": "1.0",
+
+  "description": "Extensão para salvar abas do navegador",
+
+  "permissions": ["tabs"],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["main.js"]
+  }
+
+}
