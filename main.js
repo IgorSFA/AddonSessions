@@ -6,8 +6,14 @@ document.body.style.border = "5px solid blue";
 // });
 
 function logTabs(tabs) {
-
-  console.log('Texto', tabs[0].url);
+  console.log('Texto', tabs[0]);
 }
-// console.log(browser.tabs.query({currentWindow: true}));
-browser.tabs.query({currentWindow: true}, logTabs);
+
+browser.browserAction.onClicked.addListener(function(){
+  browser.tabs.query({currentWindow: true}).then(function(tabs){
+    var newTab = browser.tabs.create({url: "popup.html"});
+    newTab.then(function(tab){
+      browser.tabs.sendMessage(tab.id, {tabs: tabs},function(){});
+    });
+  });
+});

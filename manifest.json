@@ -1,12 +1,16 @@
 {
-
+  "browser_action": {
+    "default_icon": {
+      "16": "icone.png"
+    }
+  },
   "manifest_version": 2,
   "name": "AddonSessions",
   "version": "1.0",
 
   "description": "Extensão para salvar abas do navegador",
 
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "activeTab", "<all_urls>"],
 
   "content_scripts": [
     {
